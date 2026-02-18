@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeCom Weekly Update Composer
 
-## Getting Started
+A lightweight Next.js MVP for teachers to turn rough English notes into structured weekly updates for WeCom.
 
-First, run the development server:
+## Current MVP Status
+
+- [x] Single-page composer UI at `/`
+- [x] Template + tone controls
+- [x] Notes input with validation and character count
+- [x] Generate flow with loading + error states
+- [x] Tabbed outputs: Bilingual / Chinese / English / Captions
+- [x] Copy per-tab output
+- [x] Structured API generation endpoint at `app/api/generate/route.ts`
+- [x] Local CI command (`npm run ci`) and GitHub Actions CI on push/PR
+
+## MVP Roadmap
+
+### Phase 1: Core Composer (Complete)
+- Build responsive input/output UI
+- Add `/api/generate` API route
+- Return placeholder content fields and wire to tabs
+- Add copy workflow and generation error handling
+
+### Phase 2: Output Quality (Complete)
+- Add realistic weekly-update section structure:
+  - Greeting
+  - Learning Highlights
+  - Activities and Projects
+  - Homework
+  - Reminders
+  - Next Week Preview
+  - Closing
+- Add tone behavior (warm/professional/short)
+- Add template behavior for 6 teacher scenarios
+- Add concise parent-facing Chinese output
+
+### Phase 3: MVP Hardening (Complete)
+- Add CI workflow at `.github/workflows/ci.yml`
+- Keep code dependency-light and type-safe
+- Ensure `npm run ci` passes locally and in GitHub Actions
+
+## Next Phase (Post-MVP)
+
+- Integrate real LLM generation behind `/api/generate`
+- Add result editing before copy
+- Add downloadable/exportable output formats
+- Add prompt/version logging for quality tuning
+- Add auth/workspace support if moving beyond single-user prototype
+
+## Local Development
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run ci
+```

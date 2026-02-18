@@ -45,6 +45,8 @@ const initialTabContent: Record<Tab, string> = {
   Captions: "",
 };
 
+const emptyStateText = "No generated content yet. Paste notes and click Generate.";
+
 export default function Home() {
   const [selectedTemplate, setSelectedTemplate] = useState<(typeof templates)[number]>(
     templates[0],
@@ -227,7 +229,9 @@ export default function Home() {
               </button>
             </div>
             <div className="min-h-32 whitespace-pre-wrap rounded-lg border border-dashed border-slate-300 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
-              {tabContent[activeTab]}
+              {tabContent[activeTab] || (
+                <span className="text-slate-500">{emptyStateText}</span>
+              )}
             </div>
           </div>
         </section>
